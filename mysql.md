@@ -152,8 +152,6 @@ SELECT * FROM information_schema.tables
 WHERE table_schema = 'world'
 ```
 
-Can you find out how many rows you have in the different tables?
-
-What is the name of the column that contains this?
-
-Can you find the column that gives us the next value for city.ID?
+Can you find out how many rows you have in the different tables?\
+What is the name of the column that contains this?\
+Can you find the column that gives us the next value for city.ID?\
