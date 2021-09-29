@@ -138,7 +138,7 @@ When we finished with the third task, and moved email to it's own table, we can 
 
 Try to remove yourself from the Person table and look if it fails. If it not fails, you have missed something in the earlier steps since it should not be possible to remove a person with an **Address** in the **Email** table since the **Email** table contains a reference to the **Person** table.
 
-Change the **person** table so it uses the **cascade** constraint when deleting.
+Change the **Email** table so it uses the **cascade** constraint when deleting.
 
 Try again to delete yourself from the Person table. This time it should work. Check that you're gone from the person table and also that your email is removed from the **Email** table.
 
@@ -155,3 +155,81 @@ WHERE table_schema = 'world'
 Can you find out how many rows you have in the different tables?  
 What is the name of the column that contains this?  
 Can you find the column that gives us the next value for city.ID?
+
+---
+
+## 6. SQL Joins
+
+### Task 1. concepts & terminology
+
+Go together in pairs, briefly / simply explain the following terminology and database concepts for each other / together:
+
+- JOIN
+- LEFT JOIN
+- RIGHT JOIN
+- Cartesic productTask
+- JOIN, etc.
+
+### Task 2.
+
+Use the MySQL sample database ("schema") called world. (Same as before.)
+Write SQL queries that perform the following:
+
+1. Retrieve all cities that begin and end with 'o' (uppercase letter first, lowercase last) and their population. Sort them alphabetically. (Hint: Do you remember wildcards from the past?)
+
+1. Problem 1 gave many exciting city names, but where in the world are these cities located!? We want to include the name of the country in which the cities are located. The country will be listed as a new, first column.  
+   The columns will thus be:
+
+- country name,
+- city name
+- city population.
+
+  We want the answer sorted alphabetically by country, then by city.  
+  Problem: Then we have to ask against 2 tables at once! Turn the query from problem 1 into a join query, where we also include the country table, and retrieve the name of the country from this.
+
+  > HINT: You need to find out what is the common column (foreign key to primary key connection) for these two tables.
+
+3. Get out all the countries and their (any) capitals. Sort the result by continent, and then alphabetically by country name.
+
+4. Get an overview of all countries that have at least one city, how many cities they have and the average population in these cities.
+
+5. We want to bring up all the countries in the world, and all their cities, where the population of the country is less than 1000 people. We will see the name of the country, the population in the country, which continent the country belongs to, the name of any cities there, population in any cities there.  
+   We want the result sorted alphabetically by the countries' names. (Hint: My answer gives 10 rows out, is the same number of rows you get?)
+
+6. Rank the cities in the world located in a country with some form of monarchical system of government by population. The most populous city first.
+
+7. Get a list of cities in the world that have at least 8,000,000 inhabitants and which continent they belong to. Sort by population, largest first. That is: the city's name, the city's inhabitants and which continent they belong to.
+
+8. Make a query that brings up an overview of the countries in Asia where at least 10 different languages ​​are spoken. The query must retrieve: Name of country, number of languages ​​and this must be sorted decreasing by number of languages.
+
+9. **Difficult**: Create a Horse table and fill in data:
+
+```SQL
+create table Hest(
+  id int auto_increment primary key,
+  navn varchar(50),
+  far int default null,
+  mor int default null,
+  foreign key (mor) references Hest(id) on delete set null,
+  foreign key (far) references Hest(id) on delete set null);
+
+  insert into Hest values
+  (1, 'Man o'' War', null, null),
+  (2, 'Tea Biscuit', null, null),
+  (3, 'Hard Tack', 1, 2),
+  (4, 'Whisk Broom II', null, null),
+  (5, 'Swing On', 4, null),
+  (6, 'Seabiscuit', 3, 5);
+
+```
+
+Make a query that retrieves the names of all the horses and the names of their parents.
+
+> Hint: You can join a table with yourself.. Several times..
+
+The result should look like this:  
+ ![Example image 1](./images/ex1.png)
+
+10. **Difficult**: Expand the query to retrieve the grandparents.
+
+![Example image 2](./images/ex2.png)
