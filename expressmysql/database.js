@@ -18,7 +18,7 @@ const getMovies = async () => {
     const dbCon = await getConnection();
     const [movies] = await dbCon.query(`
       SELECT movieId, movieName, plot, categoryId, year
-      FROM Country
+      FROM movies
     `);
     return movies;
   } catch (error) {
