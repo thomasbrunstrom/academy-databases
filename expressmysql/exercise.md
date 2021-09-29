@@ -1,13 +1,46 @@
 # Welcome to the exercise
 
+## Part 1
+
+Create a new folder this part of the exercise. E.g. mysql/
+
+Open that folder and init npm with `npm init -y`  
+Install the mysql2 module with `npm install mysql2`
+Create a file for you javascript code.  
+Require the mysql2/promises with:
+
+```javascript
+const mysql = require("mysql2/promise");
+```
+
+Look at the documentation on https://github.com/sidorares/node-mysql2 how to connect to your MySQL server.  
+What you need to supply is the following:
+
+```
+host: localhost
+database: world
+user: root
+password: <your password for the root user>
+```
+
+Make a connection and make sure it works by selecting all the data in the `country` table with a suitable query.
+
+Run your file with "node [filename.js]"
+
+Repeat the queries from earlier exercise, part 2 and 3 from [mysql.md](../mysql.md) but this time use nodejs and mysql2 to make the queries and log out the result in a **nice** way to the console.
+
+---
+
+## Part 2
+
 In the repo there is a academy.sql self-contained file.  
 Use MySQL Workbench to import the schema/database and its tables to your locally installed server.
 
-## The movie collection
+### The movie collection
 
 You have the embryo to a movie collection api. There are very few endpoints defined. There are some database queries defined but there's still missing a lot. Your task is to continue build on the API and create endpoints to support the following functionality.
 
-## Task 1, explore!!!
+### Task 1, explore!!!
 
 Start with exploring the files in the repo, take a look at the architecture of the application/server.
 
@@ -21,7 +54,7 @@ To start the server simply run the following command in the terminal: `npm run s
 
 If you have problems with getting nodemon to work, install supervisor with the following command: `npm install supervisor --save-dev` and then replace the `"script" :
 
-## Task 2, implement according to the use cases
+### Task 2, implement according to the use cases
 
 When developing your API, make sure to use the right **HTTP VERB** for each endpoint, eg if we're fetching data, we use **GET**. If we want to delete something we use **DELETE** and so on. Decide if you want to use PUT or PATCH when updating something.
 
@@ -31,7 +64,7 @@ To lend a movie to someone, you might want to use a table just for that.
 
 As a API-user I want to be able to:
 
-### Movies
+#### Movies
 
 1. I want to be able to get a list of all my movies
 1. I want to be able to add new movie
@@ -40,7 +73,7 @@ As a API-user I want to be able to:
 1. I want to be able to return a movie
 1. I want to be able to delete a movie
 
-### Categories
+#### Categories
 
 1. I want to be able to add new movie categories
 1. I want to be able to update a movie category
