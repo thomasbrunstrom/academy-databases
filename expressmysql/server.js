@@ -6,7 +6,7 @@ const PORT = 3000;
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-app.use("/world", routes);
+app.use("/", routes);
 
 app.listen(PORT, () => {
   console.log(`Server is now listening on ${PORT}`);
