@@ -19,6 +19,9 @@
 -- Table structure for table `moviecategories`
 --
 
+CREATE DATABASE IF NOT EXISTS `Academy`;
+USE `Academy`;
+
 DROP TABLE IF EXISTS `moviecategories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
