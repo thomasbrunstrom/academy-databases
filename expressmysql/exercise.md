@@ -50,7 +50,7 @@ There are three main files in the repo.
 - routes.js is the file that contains our endpoints.
 - database.js is the file that contains our queries to the database.
 
-To start the server simply run the following command in the terminal: `npm run server`
+To start the server simply run the following command in the terminal: `npm run serve`
 
 If you have problems with getting nodemon to work, install supervisor with the following command: `npm install supervisor --save-dev` and then replace the `"script" :
 
