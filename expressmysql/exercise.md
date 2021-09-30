@@ -52,7 +52,7 @@ There are three main files in the repo.
 
 To start the server simply run the following command in the terminal: `npm run serve`
 
-If you have problems with getting nodemon to work, install supervisor with the following command: `npm install supervisor --save-dev` and then replace the `"script" :
+If you have problems with getting nodemon to work, install supervisor with the following command: `npm install supervisor --save-dev` and then replace the `"script" : "nodemon server.js"` with `"script" : "supervisor server.js"`
 
 ### Task 2, implement according to the use cases
 
